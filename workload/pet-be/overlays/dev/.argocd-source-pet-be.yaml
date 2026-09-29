@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - ghcr.io/nguyenhainam912/pet-be:latest@sha256:8c2435871455f41aaca31f6d4ae0316d2609f88b41e4deeb10979cfdbe686b4d
