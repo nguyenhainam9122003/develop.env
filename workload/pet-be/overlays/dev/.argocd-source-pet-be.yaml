@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - ghcr.io/nguyenhainam912/pet-be:latest@sha256:8c2435871455f41aaca31f6d4ae0316d2609f88b41e4deeb10979cfdbe686b4d
+  - ghcr.io/nguyenhainam912/pet-be:latest@sha256:ed11473a974cb138f23f2788d2f81a3078fc3e89a050eaaa36bd54a215548e2a
