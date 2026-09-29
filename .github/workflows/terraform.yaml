@@ -1,0 +1,19 @@
+name: terraform
+
+on:
+  workflow_dispatch:
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [gcloud, vault]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - name: terraform fmt check
+        working-directory: terraform/${{ matrix.module }}
+        run: terraform fmt -check
+      # terraform init/plan/apply thật cần backend + credentials thật,
+      # cố tình không cấu hình ở đây để tránh chạy nhầm lên hạ tầng thật.

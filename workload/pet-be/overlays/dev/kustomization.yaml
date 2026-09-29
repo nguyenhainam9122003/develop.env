@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: pet-be
+
+resources:
+  - ../../base
+
+images:
+  - name: ghcr.io/nguyenhainam912/pet-be
+    newTag: latest
+
+replicas:
+  - name: pet-be
+    count: 1

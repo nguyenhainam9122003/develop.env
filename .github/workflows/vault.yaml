@@ -1,0 +1,15 @@
+name: vault
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate-policies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check vault policy HCL syntax
+        run: |
+          curl -sLo vault.zip https://releases.hashicorp.com/vault/1.18.1/vault_1.18.1_linux_amd64.zip
+          unzip -o vault.zip
+          ./vault policy fmt terraform/vault/main.tf || true

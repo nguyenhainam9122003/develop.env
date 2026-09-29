@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pet-be
-  namespace: pet-be
 spec:
   replicas: 1
   selector:
@@ -23,16 +22,3 @@ spec:
                 name: pet-be-config
             - secretRef:
                 name: pet-be-secret
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pet-be
-  namespace: pet-be
-spec:
-  selector:
-    app: pet-be
-  ports:
-    - port: 8888
-      targetPort: 8888
-  type: NodePort

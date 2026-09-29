@@ -1,0 +1,16 @@
+name: kubernetes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate kustomize build (kubernetes/)
+        run: |
+          curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+          ./kustomize build kubernetes/ > /dev/null
+      - name: Validate kustomize build (workload/pet-be/overlays/dev)
+        run: ./kustomize build workload/pet-be/overlays/dev > /dev/null
